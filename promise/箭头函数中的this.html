@@ -1,0 +1,35 @@
+<script>
+    // let a = 110;
+    // let obj = {
+    //     a:666,
+    //     f:()=>{
+    //         setTimeout(()=>{
+    //             console.log(this.a)
+    //         })
+    //     }
+    // }
+    // obj.f() //undefined
+
+    // var a = 110;
+    // let obj = {
+    //     a:666,
+    //     f(){
+    //         setTimeout(()=>{
+    //             console.log(this.a)
+    //         })
+    //     }
+    // }
+    // obj.f() //666
+
+    var a = 110;
+    let obj = {
+        a:666,
+        f:()=>{
+            setTimeout(()=>{
+                console.log(this.a)
+            })
+        }
+    }
+    obj.f() //110
+    
+</script>

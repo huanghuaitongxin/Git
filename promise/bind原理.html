@@ -1,0 +1,40 @@
+<script>
+    // function f(name,a,g){
+    //     console.log(name,a,g)
+    //     console.log(this)
+    // }
+    // Function.prototype.bind=function(context){
+    //     let that = this
+    //     let newarr = Array.prototype.slice.call(arguments,1)
+    //     console.log(newarr)
+    //     return function(){
+    //         return that.apply(context,newarr)
+    //     }
+    // }
+    // let obj = {name:"wangcai"}
+    // let newF = f.bind(obj,"hello","world","lalala")  // hello
+    // newF("xxxx")
+
+    //测试
+    // let a = Array.prototype.slice.call([1,2,3,4],1)
+    // console.log(a)
+
+    function f(name,age,n,a){
+    console.log(name,age,n,a)
+    console.log(this)
+}
+let obj = {name:"wangcai"}
+Function.prototype.bind = function(context){
+    let that = this;  
+    let newArr = Array.prototype.slice.call(arguments,1);
+    return function(){
+        let newArr2 = Array.prototype.slice.call(arguments)
+       // that 是 f  
+        return that.apply(context,newArr.concat(newArr2))  
+    }
+}
+let newF = f.bind(obj,"hello","world","lalala")  
+newF("xxxx")
+
+
+</script>
